@@ -38,6 +38,7 @@ h1 {
   font-size: 16px;
   border: 1px solid #a38e7c; /* Light brown border */
   border-radius: 5px;
+  margin-right: 10px; /* Add right margin */
 }
 
 .search-button {
@@ -53,4 +54,29 @@ h1 {
 
 .search-button:hover {
   background-color: #8b5b53; /* Darker brown on hover */
+}
+
+
+.book-list {
+  display: grid; /* Use CSS Grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Automatically adjust grid columns */
+  gap: 20px; /* Add gap between grid items */
+  justify-items: center; /* Center grid items horizontally */
+}
+
+.book {
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.book:hover {
+  transform: translateY(-5px);
+}
+
+.book img {
+  max-width: 100%; /* Ensure images fit within their containers */
 }
