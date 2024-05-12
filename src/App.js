@@ -1,76 +1,46 @@
 import React, { useState } from 'react';
-import './App.css';
+import axios from 'axios';
+import './App.css'; // Import CSS file
+import SearchBar from './SearchBar';
+import BookList from './BookList';
+import BookDetails from './BookDetails';
 
-function App() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+const App = () => {
+  const [books, setBooks] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
 
-  const handleSearch = async () => {
+  const searchBooks = async (query) => {
     try {
-      // Perform the search using the searchTerm
-      const results = await searchBooks(searchTerm);
-
-      // Update the searchResults state with the search results
-      setSearchResults(results);
+      const response = await axios.get(`https://openlibrary.org/search.json?q=${query}`);
+      setBooks(response.data.docs);
+      setSelectedBook(null); // Clear selected book when performing a new search
     } catch (error) {
-      console.error('Error searching books:', error);
+      console.error('Error searching for books:', error);
     }
   };
 
-  const handleBookClick = (book) => {
+  const handleBookSelect = (book) => {
     setSelectedBook(book);
   };
 
-  const searchBooks = async (keyword) => {
-    // Implement your book search logic here
-    // You can use any API or library to perform the search
-
-    // For example, using the Open Library API
-    const response = await fetch(`https://openlibrary.org/search.json?q=${keyword}`);
-    const data = await response.json();
-
-    // Extract the relevant information from the API response
-    const books = data.docs.map((doc) => ({
-      key: doc.key,
-      title: doc.title,
-      authors: doc.author_name,
-      cover: `https://covers.openlibrary.org/b/id/${doc.cover_i}-L.jpg`,
-      subjects: doc.subject,
-    }));
-
-    return books;
+  const handleReturnToSearch = () => {
+    setSelectedBook(null);
   };
 
   return (
-    <div>
-      <h1>Book Search Application</h1>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-
+    <div className="container">
+      <h1>Book Search App</h1>
+      <SearchBar onSearch={searchBooks} />
       {selectedBook ? (
-        <div>
-          <h2>{selectedBook.title}</h2>
-          <p>Authors: {selectedBook.authors.join(', ')}</p>
-          <img src={selectedBook.cover} alt={selectedBook.title} />
+        <div className="book-details">
+          <h2>Book Details</h2>
+          <BookDetails book={selectedBook} onReturn={handleReturnToSearch} />
         </div>
       ) : (
-        <ul>
-          {searchResults.map((book) => (
-            <li key={book.key} onClick={() => handleBookClick(book)}>
-              <h2>{book.title}</h2>
-              <p>Authors: {book.authors.join(', ')}</p>
-              <img src={book.cover} alt={book.title} />
-            </li>
-          ))}
-        </ul>
+        <BookList books={books} onBookSelect={handleBookSelect} />
       )}
     </div>
   );
-}
+};
 
 export default App;

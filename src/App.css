@@ -1,27 +1,56 @@
-/* App.css */
-
-/* Heading */
-h1 {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 4rem;
-}
-
-/* Search field */
-input {
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3e6d7; /* Light beige background */
+  display: flex;
   justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  min-height: 100vh; /* Use min-height to ensure the body fills at least the entire viewport height */
 }
 
-
-/* Book list */
-.book-list {
-  margin-top: 20px;
-}
-
-.book-item {
-  padding: 10px;
-  border: 1px solid #ccc;
+.container {
+  max-width: 800px;
+  padding: 20px;
+  margin-top: 20px; /* Add top margin */
+  margin-bottom: 20px; /* Add bottom margin */
+  background-color: #d7c9b5; /* Beige container background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  margin-bottom: 10px;
+  text-align: center; /* Center the text within the container */
+}
+
+h1 {
+  color: #6d574e; /* Dark brown for headings */
+}
+
+.search-bar {
+  display: flex; /* Display search bar items in a row */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1; /* Allow input field to expand to fill available space */
+  padding: 10px; /* Increase padding for input field */
+  font-size: 16px;
+  border: 1px solid #a38e7c; /* Light brown border */
+  border-radius: 5px;
+}
+
+.search-button {
+  padding: 10px 20px; /* Increase padding for button */
+  font-size: 16px;
+  background-color: #9d756f; /* Dark brown button */
+  color: #fff;
+  border: 1px solid #9d756f; /* Dark brown border */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #8b5b53; /* Darker brown on hover */
 }
