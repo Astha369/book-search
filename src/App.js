@@ -1,3 +1,5 @@
+/* App.js */
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css'; // Import CSS file
@@ -28,17 +30,29 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Book Search App</h1>
-      <SearchBar onSearch={searchBooks} />
-      {selectedBook ? (
-        <div className="book-details">
-          <h2>Book Details</h2>
-          <BookDetails book={selectedBook} onReturn={handleReturnToSearch} />
+    <div>
+      <header className="header">
+        <h1>Book Search App</h1>
+        <a href="/"><h2>Home</h2></a>
+      </header>
+      <div className="container">
+        <div className="content">
+          <div className="search-container">
+            <SearchBar onSearch={searchBooks} />
+          </div>
+          {selectedBook ? (
+            <div className="book-details">
+              <h2>Book Details</h2>
+              <BookDetails book={selectedBook} onReturn={handleReturnToSearch} />
+            </div>
+          ) : (
+            <BookList books={books} onBookSelect={handleBookSelect} />
+          )}
         </div>
-      ) : (
-        <BookList books={books} onBookSelect={handleBookSelect} />
-      )}
+      </div>
+      <footer className="footer">
+        <p>Created by [Your Name] - [Your Neptun Code]</p>
+      </footer>
     </div>
   );
 };

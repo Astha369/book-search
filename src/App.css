@@ -1,53 +1,81 @@
 /* styles.css */
+
+/* Global styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f3e6d7; /* Light beige background */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Use min-height to ensure the body fills at least the entire viewport height */
+  flex-direction: column;
+  min-height: 100vh;
 }
 
+.header a {
+  color: #fff; /* White text for anchor */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Header styles */
+.header {
+  background-color: #6d574e; /* Dark brown background */
+  color: #fff; /* White text */
+  padding: 20px; /* Add padding */
+  display: flex;
+  justify-content: space-between; /* Space items evenly */
+  align-items: center; /* Center items vertically */
+}
+
+.header h1 {
+  margin: 0; /* Remove default margin */
+}
+
+.header button {
+  background-color: transparent; /* Transparent background */
+  border: none; /* Remove border */
+  color: #fff; /* White text */
+  cursor: pointer;
+  font-size: px;
+}
+
+/* Container styles */
 .container {
+  flex: 1; /* Grow container to fill remaining space */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+.content {
+  width: 100%;
   max-width: 800px;
   padding: 20px;
-  margin-top: 20px; /* Add top margin */
+}
+
+/* Search bar styles */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px; /* Add bottom margin */
-  background-color: #d7c9b5; /* Beige container background */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  text-align: center; /* Center the text within the container */
-}
-
-h1 {
-  color: #6d574e; /* Dark brown for headings */
-}
-
-.search-bar {
-  display: flex; /* Display search bar items in a row */
-  justify-content: center; /* Center items horizontally */
-  align-items: center; /* Center items vertically */
-  margin-bottom: 20px;
 }
 
 .search-input {
-  flex: 1; /* Allow input field to expand to fill available space */
-  padding: 10px; /* Increase padding for input field */
-  font-size: 16px;
-  border: 1px solid #a38e7c; /* Light brown border */
-  border-radius: 5px;
+  width: 100%; /* Make input field fill entire width */
+  padding: 15px; /* Increase padding */
+  font-size: 18px; /* Increase font size */
+  border: 2px solid #a38e7c; /* Light brown border */
+  border-radius: 8px;
   margin-right: 10px; /* Add right margin */
 }
 
 .search-button {
-  padding: 10px 20px; /* Increase padding for button */
-  font-size: 16px;
+  padding: 15px 30px; /* Increase padding */
+  font-size: 18px; /* Increase font size */
   background-color: #9d756f; /* Dark brown button */
   color: #fff;
-  border: 1px solid #9d756f; /* Dark brown border */
-  border-radius: 5px;
+  border: 2px solid #9d756f; /* Dark brown border */
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -56,27 +84,37 @@ h1 {
   background-color: #8b5b53; /* Darker brown on hover */
 }
 
-
-.book-list {
-  display: grid; /* Use CSS Grid layout */
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Automatically adjust grid columns */
-  gap: 20px; /* Add gap between grid items */
-  justify-items: center; /* Center grid items horizontally */
+/* Footer styles */
+.footer {
+  background-color: #6d574e; /* Dark brown background */
+  color: #fff; /* White text */
+  padding: 10px; /* Add padding */
+  text-align: center; /* Center text */
+  margin-bottom: 0; /* Push footer to the bottom */
 }
 
-.book {
-  padding: 15px;
-  background-color: #fff;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+/* styles.css */
+
+/* Book item styles */
+.book-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px; /* Add margin between book items */
 }
 
-.book:hover {
-  transform: translateY(-5px);
+/* Book details styles */
+.book-details {
+  margin-left: 20px; /* Add spacing between cover image and details */
 }
 
-.book img {
-  max-width: 100%; /* Ensure images fit within their containers */
+/* Cover image styles */
+.book-item img {
+  max-width: 150px; /* Set maximum width for cover image */
+  height: auto; /* Maintain aspect ratio */
+  cursor: pointer; /* Change cursor to pointer when hovering over image */
+}
+
+/* Title styles */
+.book-details p {
+  margin: 0; /* Remove default margin for paragraphs */
 }

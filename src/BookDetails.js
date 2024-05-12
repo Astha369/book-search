@@ -8,6 +8,7 @@ const BookDetails = ({ book, onReturn }) => {
       <p>Published: {book.first_publish_year}</p>
       <p>Pages: {book.number_of_pages}</p>
       <p>Subjects: {book.subject.join(', ')}</p>
+      <br></br>
       <button onClick={onReturn}>Back to Search Results</button>
     </div>
   );
