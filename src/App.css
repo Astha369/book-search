@@ -1,0 +1,27 @@
+/* App.css */
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 4rem;
+}
+
+/* Search field */
+input {
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+/* Book list */
+.book-list {
+  margin-top: 20px;
+}
+
+.book-item {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
